@@ -27,7 +27,7 @@ const dotDate = (s: string) => isoDate(s).replace(/-/g, '.');
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Sokki',
+  name: 'Brefly',
   operatingSystem: 'macOS 13 이상',
   applicationCategory: 'UtilitiesApplication',
   softwareVersion: releases[0]?.version,
@@ -55,12 +55,12 @@ export default function Home() {
   return <>
     <ScrollMotion />
     <a className="skip" href="#main">본문으로 바로가기</a>
-    <header className="header"><a className="brand" href="#main" aria-label="Sokki 홈"><span className="logo"><BrandMark size={25}/></span>Sokki</a><nav aria-label="주요 메뉴"><a href="#how">사용 방법</a><a href="#models">AI 모델</a><a href="#releases">업데이트</a></nav><a className="button small" href={download}>다운로드 <ArrowDown size={15}/></a></header>
+    <header className="header"><a className="brand" href="#main" aria-label="Brefly 홈"><span className="logo"><BrandMark size={25}/></span>Brefly</a><nav aria-label="주요 메뉴"><a href="#how">사용 방법</a><a href="#models">AI 모델</a><a href="#releases">업데이트</a></nav><a className="button small" href={download}>다운로드 <ArrowDown size={15}/></a></header>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}/><main id="main">
       <section className="hero">
         <div className="hero-inner"><div className="hero-content">
-          <a className="release-pill" href="#releases"><span/>Sokki 0.3.2 <span className="pill-divider">/</span> 새로워진 시작 <ArrowUpRight size={14}/></a>
-          <h1>말하면, Sokki가<br/>정리해서<br/><em>바로 입력합니다.</em></h1>
+          <a className="release-pill" href="#releases"><span/>Brefly 0.3.2 <span className="pill-divider">/</span> 새로워진 시작 <ArrowUpRight size={14}/></a>
+          <h1>말하면, Brefly가<br/>정리해서<br/><em>바로 입력합니다.</em></h1>
           <p className="hero-copy">생각이 문장이 되는 가장 자연스러운 방법.<br/>단축키를 누르고 말하세요.<br/>군말은 덜고, 당신의 뜻은 그대로.</p>
           <div className="hero-actions"><a className="button" href={download}><ArrowDown size={18}/> Mac용 무료 다운로드</a><a className="text-link" href="#how">어떻게 쓰나요 <ArrowRight size={16}/></a></div>
           <p className="meta">macOS 13 이상 <span>·</span> 무료 앱 <span>·</span> Apple 공증 완료</p>
@@ -72,15 +72,15 @@ export default function Home() {
             <div className="record-actions" aria-hidden="true"><span>완료 — 요약하기</span><span>취소</span></div><p className="record-hint">⌃⌥Space를 다시 누르면 요약됩니다</p>
           </div>
           <div className="done-window"><div className="success-banner"><Check size={15}/> 클립보드에 복사됐어요 <span>⌘V</span></div><div className="summary-head"><strong>내일 회의 일정 변경</strong><span>한국어</span></div><p>내일 회의를 오후 3시로 변경하고,<br/>자료는 미리 공유해 주세요.</p><div className="summary-actions" aria-hidden="true"><span>원문 보기</span><span>다시 요약</span><span>···</span></div><div className="summary-foot"><span>← 처음으로</span><span>새 녹음</span></div></div>
-          <p className="stage-caption">Sokki의 실제 UI를 바탕으로 재현한 동작 예시</p>
+          <p className="stage-caption">Brefly의 실제 UI를 바탕으로 재현한 동작 예시</p>
         </div></div>
         <div className="under-demo"><span><AudioLines size={17}/> Apple 음성 인식</span><span><Sparkles size={17}/> 내게 맞는 AI 선택</span><span><ClipboardCheck size={17}/> 쓰던 곳에 바로 입력</span></div>
       </section>
       <section className="section" id="how"><div className="section-title"><span className="eyebrow">말하기 → 정리하기 → 입력하기</span><h2>말하는 흐름 그대로.<br/>세 단계면 충분해요.</h2><p>메뉴바에 조용히 머물다가, 필요할 때 바로.</p></div><div className="steps">{[['01','단축키를 누르고 말해요','macOS에 내장된 Apple 음성 인식이 말을 받아 적어요.'],['02','한 번 더 누르면 정리 끝','선택한 AI가 군말을 덜어내고 자연스러운 문장으로 다듬어요.'],['03','원하는 곳에 붙여 넣어요','⌘V로 붙여 넣거나, 자동 붙여넣기로 현재 커서 위치에 입력하세요.']].map(([n,t,d])=><article key={n}><span className="step-num">{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div><p className="note">처음 사용할 때 마이크·음성 인식 권한과 macOS 받아쓰기 설정이 필요해요. 자동 붙여넣기는 손쉬운 사용 권한을 허용해 주세요.</p></section>
       <section className="feature-section"><div className="section"><div className="section-title"><span className="eyebrow">작업의 흐름을 지키는 디테일</span><h2>작은 앱에 담은,<br/>매일 필요한 디테일.</h2></div><div className="features">{features.map(({icon:Icon,title,text})=><article key={title}><div className="feature-icon"><Icon size={23}/></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
-      <section className="section" id="models"><div className="section-title"><span className="eyebrow">정리는, 내게 맞는 AI로</span><h2>AI는 내 방식대로.</h2><p>받아쓰기는 언제나 무료. 문장을 정리하는 방법을 골라보세요.</p></div><div className="models">{models.map(([name,badge,desc,req])=><article key={name} className={name==='AUTO'?'recommended':''}><div className="model-heading"><h3>{name}</h3><span>{badge}</span></div><p>{desc}</p><div className="requirement">{req}</div></article>)}</div><p className="note">모델은 Sokki 설정 → 음성인식 · AI에서 선택해요. 클라우드 모델 사용 시 텍스트가 선택한 제공자에게 전송되며, 무료 한도와 요금은 제공자 정책을 따라요.</p></section>
+      <section className="section" id="models"><div className="section-title"><span className="eyebrow">정리는, 내게 맞는 AI로</span><h2>AI는 내 방식대로.</h2><p>받아쓰기는 언제나 무료. 문장을 정리하는 방법을 골라보세요.</p></div><div className="models">{models.map(([name,badge,desc,req])=><article key={name} className={name==='AUTO'?'recommended':''}><div className="model-heading"><h3>{name}</h3><span>{badge}</span></div><p>{desc}</p><div className="requirement">{req}</div></article>)}</div><p className="note">모델은 Brefly 설정 → 음성인식 · AI에서 선택해요. 클라우드 모델 사용 시 텍스트가 선택한 제공자에게 전송되며, 무료 한도와 요금은 제공자 정책을 따라요.</p></section>
       <section className="section releases" id="releases"><div className="section-title"><span className="eyebrow">RELEASE NOTES</span><h2>조금씩, 더 편하게.</h2><a className="text-link" href={`${repo}/releases`}>전체 업데이트 보기 <ArrowUpRight size={16}/></a></div><div className="release-list">{releases.map((r, i) => <article className="release-card" key={r.tag}><div className="release-head"><h3>{r.version} {i === 0 && <span>최신</span>}</h3><time dateTime={isoDate(r.publishedAt)}>{dotDate(r.publishedAt)}</time></div><ul>{notesOf(r.body).map((n, j) => <li key={j}><Bold text={n}/></li>)}</ul><a className="text-link" href={r.url}>릴리스 원문 <ArrowUpRight size={15}/></a></article>)}<p className="meta">GitHub 릴리스에서 가져옵니다 · 사이트를 빌드할 때 갱신</p></div></section>
-      <section className="download-section" id="download"><span className="logo large"><BrandMark size={40}/></span><h2>다음 문장은,<br/>말로 시작해 보세요.</h2><p>당신은 생각에 집중하세요. 정리는 Sokki가 할게요.</p><a className="button" href={download}><ArrowDown size={18}/> Mac용 무료 다운로드</a><p className="meta">macOS 13 이상 · DMG를 열고 Applications로 드래그하세요.</p></section>
-    </main><footer><a className="brand" href="#main"><BrandMark size={26}/> Sokki</a><p>생각과 문장 사이, Sokki.</p><div className="footer-links"><a className="text-link" href={sponsor}><Heart size={16}/> 후원하기 <ArrowUpRight size={14}/></a><a className="text-link" href={repo}><Code2 size={17}/> GitHub <ArrowUpRight size={14}/></a></div></footer>
+      <section className="download-section" id="download"><span className="logo large"><BrandMark size={40}/></span><h2>다음 문장은,<br/>말로 시작해 보세요.</h2><p>당신은 생각에 집중하세요. 정리는 Brefly가 할게요.</p><a className="button" href={download}><ArrowDown size={18}/> Mac용 무료 다운로드</a><p className="meta">macOS 13 이상 · DMG를 열고 Applications로 드래그하세요.</p></section>
+    </main><footer><a className="brand" href="#main"><BrandMark size={26}/> Brefly</a><p>생각과 문장 사이, Brefly.</p><div className="footer-links"><a className="text-link" href={sponsor}><Heart size={16}/> 후원하기 <ArrowUpRight size={14}/></a><a className="text-link" href={repo}><Code2 size={17}/> GitHub <ArrowUpRight size={14}/></a></div></footer>
   </>;
 }

@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image', title, description, images: [`${SITE_URL}og.png`] },
   robots: { index: true, follow: true },
+  // Search Console 소유권 확인용. 확인이 끝난 뒤에도 지우면 소유권이 풀린다.
+  verification: { google: 'p_n4iBm5dXACgPEF564zssMbqPvW13SXjoKOIGUP9K4' },
   icons: { icon: path('/favicon.svg'), apple: path('/apple-touch-icon.png') },
 };
 

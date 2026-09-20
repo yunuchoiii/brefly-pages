@@ -13,6 +13,8 @@ const sponsor = 'https://github.com/sponsors/yunuchoiii';
 // 릴리스 노트는 빌드 때 scripts/fetch-releases.mjs 가 GitHub 에서 가져온다. 여기선 "## 바뀐 것" 아래 불릿만 보여 준다.
 type Release = { tag: string; version: string; publishedAt: string; url: string; body: string };
 const releases = releasesData as Release[];
+// 히어로 알약의 버전. 예전엔 0.3.2 가 박혀 있어 릴리스를 올려도 그대로였다.
+const latestVersion = releases[0]?.version ?? '';
 function notesOf(body: string): string[] {
   const sections = body.split(/^##\s+/m);
   const pick = sections.find((x) => x.startsWith('바뀐 것')) ?? sections.find((x) => /^- /m.test(x)) ?? '';
@@ -59,7 +61,7 @@ export default function Home() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}/><main id="main">
       <section className="hero">
         <div className="hero-inner"><div className="hero-content">
-          <a className="release-pill" href="#releases"><span/>Brefly 0.3.2 <span className="pill-divider">/</span> 새로워진 시작 <ArrowUpRight size={14}/></a>
+          <a className="release-pill" href="#releases"><span/>Brefly {latestVersion} <span className="pill-divider">/</span> 무엇이 바뀌었나요 <ArrowUpRight size={14}/></a>
           <h1>말하면, Brefly가<br/>정리해서<br/><em>바로 입력합니다.</em></h1>
           <p className="hero-copy">생각이 문장이 되는 가장 자연스러운 방법.<br/>단축키를 누르고 말하세요.<br/>군말은 덜고, 당신의 뜻은 그대로.</p>
           <div className="hero-actions"><a className="button" href={download}><ArrowDown size={18}/> Mac용 무료 다운로드</a><a className="text-link" href="#how">어떻게 쓰나요 <ArrowRight size={16}/></a></div>

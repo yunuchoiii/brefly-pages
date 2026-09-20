@@ -41,9 +41,23 @@ try {
 // 검색 엔진에는 "마지막으로 바뀐 날" 을 알려 준다. 가장 최근 릴리스 날짜와 오늘 중 뒤의 것.
 const latest = releases[0]?.publishedAt ?? new Date().toISOString();
 const lastmod = new Date(Math.max(new Date(latest).getTime(), Date.now())).toISOString().slice(0, 10);
+
+// 가이드 글도 사이트맵에 넣는다. 목록은 lib/guides.ts 가 정본이지만 이 스크립트는 ESM 이라
+// TS 를 못 읽으므로, 파일에서 slug 와 updated 만 뽑아 쓴다. 두 벌로 적어 두면 갈라진다.
+const guidesSrc = await readFile(new URL('../lib/guides.ts', import.meta.url), 'utf8');
+const guides = [...guidesSrc.matchAll(/slug:\s*'([^']+)'[\s\S]*?updated:\s*'([^']+)'/g)]
+  .map(([, slug, updated]) => ({ slug, updated }));
+if (!guides.length) throw new Error('lib/guides.ts 에서 가이드를 못 읽었다 — 사이트맵이 홈만 남는다');
+
+const urls = [
+  { loc: SITE_URL, lastmod, changefreq: 'weekly', priority: '1.0' },
+  { loc: `${SITE_URL}guide/`, lastmod, changefreq: 'monthly', priority: '0.8' },
+  ...guides.map((g) => ({ loc: `${SITE_URL}guide/${g.slug}/`, lastmod: g.updated, changefreq: 'monthly', priority: '0.7' })),
+];
+
 await writeFile(SITEMAP, `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>${SITE_URL}</loc><lastmod>${lastmod}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+${urls.map((u) => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`).join('\n')}
 </urlset>
 `);
-console.log(`sitemap lastmod ${lastmod}`);
+console.log(`sitemap lastmod ${lastmod} · URL ${urls.length}개`);

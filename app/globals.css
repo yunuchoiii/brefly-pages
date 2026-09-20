@@ -18,3 +18,38 @@ h1{font-size:clamp(40px,4.4vw,61px);letter-spacing:-2.7px;margin-top:28px;line-h
 .release-list .meta{margin:0}
 .footer-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
 
+
+/* 사용 가이드 — 읽는 글이라 본문 폭을 좁히고 제목 위계를 문서에 맞게 다시 잡는다. */
+.guide{max-width:720px;margin:auto;padding:56px 24px 40px}
+.guide-kicker{font-size:12px;letter-spacing:1.8px;color:#8b909a;font-weight:700;text-transform:uppercase}
+.guide h1{font-size:clamp(30px,4vw,42px);letter-spacing:-1.4px;line-height:1.28;margin:14px 0 0}
+.guide-lead{color:var(--muted);font-size:17px;line-height:1.85;margin-top:18px}
+.guide-meta{font-size:13px;color:#8b909a;margin-top:18px;border-top:1px solid var(--line);padding-top:18px}
+.guide h2{font-size:25px;letter-spacing:-.8px;margin-top:52px}
+.guide h3{font-size:18px;margin-top:32px}
+.guide p{margin-top:16px;line-height:1.85}
+.guide ul,.guide ol{margin-top:16px;padding-left:22px;line-height:1.9}
+.guide ul{list-style:disc}
+.guide ol{list-style:decimal}
+.guide li::marker{color:#a8adb6}
+.guide li+li{margin-top:8px}
+.guide strong{font-weight:650}
+.guide kbd{font:inherit;font-size:13px;background:#f2f3f5;border:1px solid #dcdfe4;border-bottom-width:2px;border-radius:6px;padding:2px 7px;white-space:nowrap}
+.guide-callout{margin-top:26px;border:1px solid var(--line);border-left:3px solid #e0604a;border-radius:0 12px 12px 0;background:#fbfbfc;padding:18px 20px}
+.guide-callout p{margin-top:0}
+.guide-callout p+p{margin-top:12px}
+.guide-steps{counter-reset:s;list-style:none!important;padding-left:0;margin-top:26px}
+.guide-steps>li{counter-increment:s;position:relative;padding-left:44px;margin-top:22px}
+.guide-steps>li::before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;font-size:14px;font-weight:650;display:flex;align-items:center;justify-content:center}
+.guide-cta{margin-top:56px;border-top:1px solid var(--line);padding-top:32px;text-align:center}
+.guide-cta p{color:var(--muted);margin-bottom:20px}
+.guide-index{display:grid;gap:14px;margin-top:36px}
+.guide-index a{display:block;border:1px solid var(--line);border-radius:14px;padding:22px 24px;transition:border-color .2s,box-shadow .2s}
+.guide-index a:hover{border-color:#e0604a70;box-shadow:0 12px 32px #16181d0d}
+.guide-index h2{font-size:19px;font-weight:650;letter-spacing:-.3px;margin:0;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.guide-index h2 svg{color:#8b909a}
+.guide-index p{color:var(--muted);font-size:15px;margin-top:8px}
+.guide-more{margin-top:56px;border-top:1px solid var(--line);padding-top:28px}
+.guide-more h2{font-size:15px;margin-top:0;letter-spacing:0;color:#8b909a;font-weight:700}
+.guide-more ul{list-style:none!important;padding-left:0}
+@media(max-width:600px){.guide{padding:36px 20px 30px}.guide h2{font-size:22px;margin-top:40px}}

@@ -30,6 +30,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'Brefly',
+  alternateName: '브레플리',
   operatingSystem: 'macOS 13 이상',
   applicationCategory: 'UtilitiesApplication',
   softwareVersion: releases[0]?.version,
@@ -37,7 +38,7 @@ const jsonLd = {
   downloadUrl: download,
   url: SITE_URL,
   inLanguage: 'ko',
-  description: '단축키를 누르고 말하면 Apple 음성 인식이 받아 적고 AI가 문장을 정리해 커서 위치에 붙여 넣는 무료 macOS 메뉴바 앱.',
+  description: 'Brefly(브레플리)는 단축키를 누르고 말하면 Apple 음성 인식이 받아 적고 AI가 문장을 정리해 커서 위치에 붙여 넣는 무료 macOS 메뉴바 앱입니다.',
 };
 const features = [
   { icon: Command, title: '손에 익은 단축키로', text: '기본 ⌃⌥Space부터 나만의 조합까지. 수정자 키만 사용하는 단축키도 설정할 수 있어요.' },
@@ -64,6 +65,7 @@ export default function Home() {
           <a className="release-pill" href="#releases"><span/>Brefly {latestVersion} <span className="pill-divider">/</span> 무엇이 바뀌었나요 <ArrowUpRight size={14}/></a>
           <h1>말하면, Brefly가<br/>정리해서<br/><em>바로 입력합니다.</em></h1>
           <p className="hero-copy">생각이 문장이 되는 가장 자연스러운 방법.<br/>단축키를 누르고 말하세요.<br/>군말은 덜고, 당신의 뜻은 그대로.</p>
+          <p className="meta">Brefly는 <strong>브레플리</strong>라고 읽습니다.</p>
           <div className="hero-actions"><a className="button" href={download}><ArrowDown size={18}/> Mac용 무료 다운로드</a><a className="text-link" href="#how">어떻게 쓰나요 <ArrowRight size={16}/></a></div>
           <p className="meta">macOS 13 이상 <span>·</span> 무료 앱 <span>·</span> Apple 공증 완료</p>
         </div><div className="app-stage" aria-label="앱의 녹음 및 요약 완료 화면을 재현한 동작 예시">

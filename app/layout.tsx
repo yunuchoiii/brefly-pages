@@ -2,15 +2,15 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { SITE_URL, path } from '../lib/site';
 
-const title = 'Brefly — 맥 음성 받아쓰기 · AI 정리 앱';
+const title = 'Brefly(브레플리) — 맥 음성 받아쓰기 · AI 정리 앱';
 const description =
-  '단축키를 누르고 말하면 Apple 음성 인식이 받아 적고 AI가 문장을 정리해 커서 위치에 붙여 넣는 무료 macOS 메뉴바 앱. Apple AI, Gemini, Claude 중 골라 쓰세요.';
+  'Brefly(브레플리)는 단축키를 누르고 말하면 Apple 음성 인식이 받아 적고 AI가 문장을 정리해 커서 위치에 붙여 넣는 무료 macOS 메뉴바 앱입니다. Apple AI, Gemini, Claude 중 골라 쓰세요.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title,
   description,
-  keywords: ['맥 음성 받아쓰기', 'macOS 음성 인식 앱', '음성 메모 정리', '받아쓰기 앱', '음성 입력 맥', 'speech to text mac', 'dictation mac', 'Brefly'],
+  keywords: ['브레플리', '브레플리 앱', '맥 음성 받아쓰기', 'macOS 음성 인식 앱', '음성 메모 정리', '받아쓰기 앱', '음성 입력 맥', 'speech to text mac', 'dictation mac', 'Brefly'],
   alternates: { canonical: SITE_URL },
   openGraph: {
     type: 'website',

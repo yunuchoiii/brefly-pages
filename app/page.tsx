@@ -1,6 +1,6 @@
 export const dynamic = 'force-static';
 import ScrollMotion from './scroll-motion';
-import { AudioLines, ArrowDown, ArrowRight, ArrowUpRight, Command, ClipboardCheck, SlidersHorizontal, ShieldCheck, Sparkles, Check, Code2 } from 'lucide-react';
+import { AudioLines, ArrowDown, ArrowRight, ArrowUpRight, Command, ClipboardCheck, SlidersHorizontal, ShieldCheck, Sparkles, Check, Code2, Heart } from 'lucide-react';
 function BrandMark({size = 28}: {size?: number}) {
   return <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 21 C7 8,10.5 8,13.5 16 C15.5 21.5,18 21.5,20.5 16" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/><circle cx="26.5" cy="16" r="3" fill="#e0604a"/></svg>;
 }
@@ -8,6 +8,7 @@ import releasesData from '../data/releases.json';
 import { SITE_URL, REPO_URL, DOWNLOAD_URL } from '../lib/site';
 const repo = REPO_URL;
 const download = DOWNLOAD_URL;
+const sponsor = 'https://github.com/sponsors/yunuchoiii';
 
 // 릴리스 노트는 빌드 때 scripts/fetch-releases.mjs 가 GitHub 에서 가져온다. 여기선 "## 바뀐 것" 아래 불릿만 보여 준다.
 type Release = { tag: string; version: string; publishedAt: string; url: string; body: string };
@@ -80,6 +81,6 @@ export default function Home() {
       <section className="section" id="models"><div className="section-title"><span className="eyebrow">정리는, 내게 맞는 AI로</span><h2>AI는 내 방식대로.</h2><p>받아쓰기는 언제나 무료. 문장을 정리하는 방법을 골라보세요.</p></div><div className="models">{models.map(([name,badge,desc,req])=><article key={name} className={name==='AUTO'?'recommended':''}><div className="model-heading"><h3>{name}</h3><span>{badge}</span></div><p>{desc}</p><div className="requirement">{req}</div></article>)}</div><p className="note">모델은 Sokki 설정 → 음성인식 · AI에서 선택해요. 클라우드 모델 사용 시 텍스트가 선택한 제공자에게 전송되며, 무료 한도와 요금은 제공자 정책을 따라요.</p></section>
       <section className="section releases" id="releases"><div className="section-title"><span className="eyebrow">RELEASE NOTES</span><h2>조금씩, 더 편하게.</h2><a className="text-link" href={`${repo}/releases`}>전체 업데이트 보기 <ArrowUpRight size={16}/></a></div><div className="release-list">{releases.map((r, i) => <article className="release-card" key={r.tag}><div className="release-head"><h3>{r.version} {i === 0 && <span>최신</span>}</h3><time dateTime={isoDate(r.publishedAt)}>{dotDate(r.publishedAt)}</time></div><ul>{notesOf(r.body).map((n, j) => <li key={j}><Bold text={n}/></li>)}</ul><a className="text-link" href={r.url}>릴리스 원문 <ArrowUpRight size={15}/></a></article>)}<p className="meta">GitHub 릴리스에서 가져옵니다 · 사이트를 빌드할 때 갱신</p></div></section>
       <section className="download-section" id="download"><span className="logo large"><BrandMark size={40}/></span><h2>다음 문장은,<br/>말로 시작해 보세요.</h2><p>당신은 생각에 집중하세요. 정리는 Sokki가 할게요.</p><a className="button" href={download}><ArrowDown size={18}/> Mac용 무료 다운로드</a><p className="meta">macOS 13 이상 · DMG를 열고 Applications로 드래그하세요.</p></section>
-    </main><footer><a className="brand" href="#main"><BrandMark size={26}/> Sokki</a><p>생각과 문장 사이, Sokki.</p><a className="text-link" href={repo}><Code2 size={17}/> GitHub <ArrowUpRight size={14}/></a></footer>
+    </main><footer><a className="brand" href="#main"><BrandMark size={26}/> Sokki</a><p>생각과 문장 사이, Sokki.</p><div className="footer-links"><a className="text-link" href={sponsor}><Heart size={16}/> 후원하기 <ArrowUpRight size={14}/></a><a className="text-link" href={repo}><Code2 size={17}/> GitHub <ArrowUpRight size={14}/></a></div></footer>
   </>;
 }

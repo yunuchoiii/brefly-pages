@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { SITE_URL } from '../lib/site';
+import { SITE_URL, path } from '../lib/site';
 
-const base = process.env.GITHUB_PAGES === 'true' ? '/Brefly-Pages' : '';
 const title = 'Brefly — 맥 음성 받아쓰기 · AI 정리 앱';
 const description =
   '단축키를 누르고 말하면 Apple 음성 인식이 받아 적고 AI가 문장을 정리해 커서 위치에 붙여 넣는 무료 macOS 메뉴바 앱. Apple AI, Gemini, Claude 중 골라 쓰세요.';
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image', title, description, images: [`${SITE_URL}og.png`] },
   robots: { index: true, follow: true },
-  icons: { icon: `${base}/favicon.svg`, apple: `${base}/apple-touch-icon.png` },
+  icons: { icon: path('/favicon.svg'), apple: path('/apple-touch-icon.png') },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

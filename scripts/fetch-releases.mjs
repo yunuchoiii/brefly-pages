@@ -2,15 +2,15 @@
 // 네트워크가 없거나 API 가 실패하면 기존 스냅샷을 그대로 둔다 — 로컬 개발이 막히면 안 된다.
 import { readFile, writeFile } from 'node:fs/promises';
 
-const SITE_URL = 'https://yunuchoiii.github.io/Sokki-Pages/';
-const API = 'https://api.github.com/repos/yunuchoiii/Sokki/releases?per_page=10';
+const SITE_URL = 'https://yunuchoiii.github.io/brefly-pages/';
+const API = 'https://api.github.com/repos/yunuchoiii/brefly/releases?per_page=10';
 const OUT = new URL('../data/releases.json', import.meta.url);
 const SITEMAP = new URL('../public/sitemap.xml', import.meta.url);
 const KEEP = 3;
 
 async function fetchReleases() {
   // Actions 러너는 IP 를 공유해 익명 한도(시간당 60회)에 자주 걸린다. 워크플로가 GH_TOKEN 을 넘긴다.
-  const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'sokki-pages' };
+  const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'brefly-pages' };
   if (process.env.GH_TOKEN) headers.Authorization = `Bearer ${process.env.GH_TOKEN}`;
   const res = await fetch(API, { headers });
   if (!res.ok) throw new Error(`GitHub API ${res.status}`);

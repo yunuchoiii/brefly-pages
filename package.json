@@ -9,6 +9,7 @@
     "prebuild": "node scripts/fetch-releases.mjs",
     "dev": "vinext dev",
     "build": "vinext build",
+    "postbuild": "node scripts/pretty-urls.mjs",
     "start": "vinext start",
     "lint": "oxlint app vite.config.ts next.config.ts",
     "format": "oxfmt",

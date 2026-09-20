@@ -34,7 +34,7 @@ export function GuideFooter() {
 /** 글 끝마다 붙는 다운로드 유도. */
 export function GuideCta() {
   return <aside className="guide-cta">
-    <p><strong>Brefly</strong> 는 무료입니다. macOS 13 이상에서 쓸 수 있고, 애플 공증을 받아 경고 없이 열립니다.</p>
+    <p><strong>Brefly(브레플리)</strong> 는 무료입니다. macOS 13 이상에서 쓸 수 있고, 애플 공증을 받아 경고 없이 열립니다.</p>
     <a className="button" href={DOWNLOAD_URL}><ArrowDown size={18}/> Mac용 무료 다운로드</a>
   </aside>;
 }

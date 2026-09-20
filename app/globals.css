@@ -16,3 +16,5 @@ h1{font-size:clamp(40px,4.4vw,61px);letter-spacing:-2.7px;margin-top:28px;line-h
 @media(prefers-reduced-motion:reduce){.scroll-progress{display:none}.models article{transition:none}}
 .release-list{display:grid;gap:16px}
 .release-list .meta{margin:0}
+.footer-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+
